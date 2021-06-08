@@ -26,7 +26,8 @@
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
-        "vue-observe-visibility": "^1.0.0",
+        "laravel-echo": "^1.10.0",
+        "pusher-js": "^7.0.3",
         "vuex": "^4.0.1"
     }
 }

@@ -3,7 +3,9 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Inertia\Middleware;
+use App\Http\Resources\User\UserResource;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -33,9 +35,11 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
+        $user = new UserResource($request->user());
+
         return array_merge(parent::share($request), [
             'auth' => [
-                'user' => $request->user(),
+                'user' => collect($user)
             ]
         ]);
     }

@@ -3,9 +3,7 @@
         class="inline-block w-full p-4 border-b border-gray-500  hover:bg-gray-800"
     >
         <div class="flex">
-            <div class="w-12 h-12 mr-3">
-                <img :src="tweet.user.avatar" class="rounded-full" />
-            </div>
+            <tweet-profilephoto :user="tweet.user" />
             <div class="flex-1">
                 <tweet-user :user="tweet.user" />
                 <p class="text-gray-300 whitespace-pre-wrap">
@@ -18,9 +16,10 @@
 
 <script>
 import TweetUser from "@/Components/Tweet/TweetUsername";
+import TweetProfilephoto from "@/Components/Tweet/TweetProfilephoto";
 export default {
     name: "Tweet",
-    components: { TweetUser },
+    components: { TweetUser, TweetProfilephoto },
     props: ["tweet"],
 };
 </script>
