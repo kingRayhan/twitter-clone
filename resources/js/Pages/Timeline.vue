@@ -31,7 +31,7 @@ export default {
     },
     methods: {
         ...mapMutations({
-            getTweets: "timeline/PUSH_TWEETS",
+          PUSH_TWEETS: "timeline/PUSH_TWEETS",
         }),
         ...mapActions({
             loadPagetweets: "timeline/loadPagetweets",
@@ -48,8 +48,13 @@ export default {
     },
 
     mounted() {
-        this.getTweets(this.resource.data);
+        this.PUSH_TWEETS(this.resource.data);
         this.lastPage = this.resource.meta.last_page;
+
+      Echo.private(`timeline.${this.$page.props.auth.user.id}`)
+          .listen('.new-tweet-created', (tweet) => {
+              this.PUSH_TWEETS([tweet])
+          });
     },
 };
 </script>

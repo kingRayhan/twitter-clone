@@ -18098,17 +18098,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _TweetProfilephoto_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TweetProfilephoto.vue */ "./resources/js/Components/Tweet/TweetProfilephoto.vue");
-/* harmony import */ var _Components_Tweet_TweetButton__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Components/Tweet/TweetButton */ "./resources/js/Components/Tweet/TweetButton.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _TweetProfilephoto_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TweetProfilephoto.vue */ "./resources/js/Components/Tweet/TweetProfilephoto.vue");
+/* harmony import */ var _Components_Tweet_TweetButton__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/Tweet/TweetButton */ "./resources/js/Components/Tweet/TweetButton.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    TweetProfilephoto: _TweetProfilephoto_vue__WEBPACK_IMPORTED_MODULE_0__.default,
-    TweetButton: _Components_Tweet_TweetButton__WEBPACK_IMPORTED_MODULE_1__.default
+    TweetProfilephoto: _TweetProfilephoto_vue__WEBPACK_IMPORTED_MODULE_1__.default,
+    TweetButton: _Components_Tweet_TweetButton__WEBPACK_IMPORTED_MODULE_2__.default
   },
   data: function data() {
     return {
@@ -18117,9 +18125,28 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     save: function save() {
-      axios__WEBPACK_IMPORTED_MODULE_2___default().post(route("tweets.store"), {
-        body: this.body
-      });
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_3___default().post(route("tweets.store"), {
+                  body: _this.body
+                });
+
+              case 2:
+                _this.body = "";
+
+              case 3:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }))();
     }
   }
 });
@@ -18659,7 +18686,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   methods: _objectSpread(_objectSpread(_objectSpread({}, (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapMutations)({
-    getTweets: "timeline/PUSH_TWEETS"
+    PUSH_TWEETS: "timeline/PUSH_TWEETS"
   })), (0,vuex__WEBPACK_IMPORTED_MODULE_4__.mapActions)({
     loadPagetweets: "timeline/loadPagetweets"
   })), {}, {
@@ -18672,8 +18699,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     tweets: "timeline/tweets"
   })),
   mounted: function mounted() {
-    this.getTweets(this.resource.data);
+    var _this = this;
+
+    this.PUSH_TWEETS(this.resource.data);
     this.lastPage = this.resource.meta.last_page;
+    Echo["private"]("timeline.".concat(this.$page.props.auth.user.id)).listen('.new-tweet-created', function (tweet) {
+      _this.PUSH_TWEETS([tweet]);
+    });
   }
 });
 
@@ -19531,25 +19563,31 @@ var _hoisted_1 = {
 var _hoisted_2 = {
   "class": "flex"
 };
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
+var _hoisted_3 = {
   "class": "w-3/12"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", null, "Nav")], -1
+};
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h1", null, "Nav", -1
 /* HOISTED */
 );
 
-var _hoisted_4 = {
+var _hoisted_5 = {
+  "class": "text-white"
+};
+var _hoisted_6 = {
   "class": "w-7/12 border-l border-r border-gray-500"
 };
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", {
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("h3", {
   "class": "p-4 text-xl font-bold text-white uppercase border-b border-gray-500 "
 }, " Home ")], -1
 /* HOISTED */
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("pre", _hoisted_5, "                " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.auth) + "\n              ", 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])]);
 }
 
 /***/ }),
@@ -20719,14 +20757,22 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   getters: {
     tweets: function tweets(state) {
-      return state.tweets;
+      return state.tweets.sort(function (a, b) {
+        return b.created_at - a.created_at;
+      });
     }
   },
   mutations: {
     PUSH_TWEETS: function PUSH_TWEETS(state, tweets) {
       var _state$tweets;
 
-      (_state$tweets = state.tweets).push.apply(_state$tweets, _toConsumableArray(tweets));
+      var tweetIds = state.tweets.map(function (t) {
+        return t.id;
+      });
+
+      (_state$tweets = state.tweets).push.apply(_state$tweets, _toConsumableArray(tweets.filter(function (tweet) {
+        return !tweetIds.includes(tweet.id);
+      })));
     }
   },
   actions: {

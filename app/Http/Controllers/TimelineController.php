@@ -9,7 +9,7 @@ class TimelineController extends Controller
 {
     public function index()
     {
-        $resource =  new TweetCollection(\request()->user()->tweetsFromFollowing()->latest()->paginate(30));
+        $resource =  new TweetCollection(\request()->user()->tweetsFromFollowing()->latest()->paginate(5));
         // return  $resource;
         return Inertia::render('Timeline', compact('resource'));
     }

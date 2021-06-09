@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\TweetCreated;
 use App\Http\Requests\Tweet\TweetStoreRequest;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,9 @@ class TweetController extends Controller
      */
     public function store(TweetStoreRequest $request)
     {
-        return $request->user()->tweets()->create($request->only('body'));
+        $tweet = $request->user()->tweets()->create($request->only('body'));
+        broadcast(new TweetCreated($tweet));
+        return $tweet;
     }
 
     /**

@@ -3,6 +3,10 @@
         <div class="flex">
             <div class="w-3/12">
                 <h1>Nav</h1>
+
+              <pre class="text-white">
+                {{$page.props.auth}}
+              </pre>
             </div>
             <div class="w-7/12 border-l border-r border-gray-500">
                 <div>

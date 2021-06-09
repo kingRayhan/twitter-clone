@@ -33,8 +33,9 @@ export default {
         };
     },
     methods: {
-        save() {
-            axios.post(route("tweets.store"), { body: this.body });
+        async save() {
+            await axios.post(route("tweets.store"), { body: this.body });
+            this.body = ""
         },
     },
 };

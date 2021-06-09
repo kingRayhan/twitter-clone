@@ -9,12 +9,15 @@ export default {
     },
     getters: {
         tweets(state) {
-            return state.tweets;
+            return state.tweets.sort((a,b) => b.created_at - a.created_at);
         }
     },
     mutations: {
         PUSH_TWEETS(state, tweets) {
-            state.tweets.push(...tweets)
+            const tweetIds = state.tweets.map(t => t.id)
+            state.tweets.push(
+                ...tweets.filter( tweet => !tweetIds.includes(tweet.id) )
+            )
         }
     },
     actions: {
